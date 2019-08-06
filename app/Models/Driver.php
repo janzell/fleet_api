@@ -19,6 +19,7 @@ class Driver extends Model
         'first_name',
         'last_name',
         'license_number',
+        'contact_number',
         'address'
     ];
 }

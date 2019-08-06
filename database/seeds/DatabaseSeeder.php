@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Driver;
+use App\Models\Taxi;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,7 +14,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        User::query()->truncate();
+        Taxi::query()->truncate();
+        Driver::query()->truncate();
+        
         factory(User::class, 100)->create();
         factory(Driver::class, 100)->create();
+        factory(Taxi::class, 100)->create();
     }
 }

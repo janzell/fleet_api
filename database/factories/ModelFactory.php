@@ -13,6 +13,7 @@
 
 use App\Models\User;
 use App\Models\Driver;
+use App\Models\Taxi;
 
 $factory->define(User::class, function (Faker\Generator $faker) {
     return [
@@ -28,7 +29,25 @@ $factory->define(Driver::class, function (Faker\Generator $faker) {
         'first_name'     => $faker->firstName,
         'last_name'      => $faker->lastName,
         'license_number' => $faker->swiftBicNumber,
-        'address'        => $faker->address
+        'address'        => $faker->address,
+        'contact_number' => $faker->phoneNumber
+    ];
+});
+
+$factory->define(Taxi::class, function (Faker\Generator $faker) {
+    $status = $faker->randomElement(['operable', 'maintenance']);
+    $malfunctions = $status === 'operable' ? null : $faker->realText();
+    return [
+        'plate_number'        => $faker->swiftBicNumber,
+        'color'               => $faker->colorName,
+        'mileage'             => $faker->numberBetween(10000, 100000),
+        'planned_maintenance' => $faker->numberBetween(10000, 100000),
+        'oil_percentage'      => $faker->numberBetween(1, 100),
+        'malfunctions'        => $malfunctions,
+        'status'              => $status,
+        'notes'               => $faker->text,
+        'model'               => $faker->numberBetween(1995, 2019),
+        'brand'               => $faker->randomElement(['Toyota', 'Hyundai', 'Ford'])
     ];
 });
 
