@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Driver;
 use App\Models\Taxi;
+use App\Models\Part;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,9 +18,10 @@ class DatabaseSeeder extends Seeder
         User::query()->truncate();
         Taxi::query()->truncate();
         Driver::query()->truncate();
-        
+
         factory(User::class, 100)->create();
         factory(Driver::class, 100)->create();
         factory(Taxi::class, 100)->create();
+        factory(Part::class, 100)->create();
     }
 }

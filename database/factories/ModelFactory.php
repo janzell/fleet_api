@@ -14,6 +14,7 @@
 use App\Models\User;
 use App\Models\Driver;
 use App\Models\Taxi;
+use App\Models\Part;
 
 $factory->define(User::class, function (Faker\Generator $faker) {
     return [
@@ -35,8 +36,9 @@ $factory->define(Driver::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(Taxi::class, function (Faker\Generator $faker) {
-    $status = $faker->randomElement(['operable', 'maintenance']);
+    $status       = $faker->randomElement(['operable', 'maintenance']);
     $malfunctions = $status === 'operable' ? null : $faker->realText();
+
     return [
         'plate_number'        => $faker->swiftBicNumber,
         'color'               => $faker->colorName,
@@ -50,4 +52,15 @@ $factory->define(Taxi::class, function (Faker\Generator $faker) {
         'brand'               => $faker->randomElement(['Toyota', 'Hyundai', 'Ford'])
     ];
 });
+
+
+$factory->define(Part::class, function (Faker\Generator $faker) {
+    return [
+        'name'        => $faker->realText(20),
+        'code'        => $faker->uuid,
+        'quantity'    => $faker->randomNumber(2),
+        'description' => $faker->realText(50)
+    ];
+});
+
 
