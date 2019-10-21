@@ -17,14 +17,24 @@ class Taxi extends Model
      */
     protected $fillable = [
         'plate_number',
-        'model',
         'status',
-        'malfunctions',
-        'mileage',
-        'planned_maintenance',
-        'oil_percentage',
-        'color',
-        'brand',
-        'notes'
+        'notes',
+        'body_number',
+        'engine_number',
+        'chassis_number',
+        'cr_number',
+        'cr_issued_at',
+        'year_model',
+        'mv_file_number',
+        'private_number',
+        'sticker',
+        'series_id',
+        'acquired_at',
+        'temporary_plate_number',
+        'or_number',
+        'or_issued_at',
+        'case_number',
+        'garage_id',
+        'company_id'
     ];
 }
