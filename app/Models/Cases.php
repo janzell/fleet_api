@@ -11,7 +11,7 @@ class Cases extends Model
     /**
      * @var string
      */
-    protected $table = 'cases';
+    protected $table = 'case_numbers';
 
     /**
      * @var string
