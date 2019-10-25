@@ -16,7 +16,8 @@ use App\Models\Cases;
 $factory->define(Cases::class, function (Faker\Generator $faker) {
     return [
         'number'     => $faker->numerify('##-##-####'),
-        'expired_at' => $faker->date('Y-m-d')
+        'expired_at' => $faker->date('Y-m-d'),
+        'notes'      => $faker->text
     ];
 });
 

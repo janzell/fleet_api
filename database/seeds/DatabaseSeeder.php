@@ -10,6 +10,7 @@ use App\Models\Company;
 use App\Models\YearModel;
 use App\Models\BodyNumber;
 use App\Models\Cases;
+use App\Models\Garage;
 
 
 class DatabaseSeeder extends Seeder
@@ -26,6 +27,7 @@ class DatabaseSeeder extends Seeder
         Company::query()->truncate();
         YearModel::query()->truncate();
         BodyNumber::query()->truncate();
+        Garage::query()->truncate();
         Cases::query()->truncate();
     }
 
@@ -42,6 +44,7 @@ class DatabaseSeeder extends Seeder
 
         factory(Series::class, 100)->create();
         factory(Cases::class, 100)->create();
+        factory(Garage::class, 100)->create();
 
         $this->generateModelData(BodyNumber::class, 'number', $faker->numerify('###'));
         $this->generateModelData(YearModel::class, 'name', $faker->numerify('###'));

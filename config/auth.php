@@ -84,7 +84,7 @@ return [
         'users' => [
             'provider' => 'users',
             'table'    => 'password_resets',
-            'expire'   => 60,
+            'expire'   => 43800,
         ],
     ],
 ];

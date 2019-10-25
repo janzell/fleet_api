@@ -7,17 +7,17 @@ class CorsMiddleware
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure                 $next
      * @return mixed
      */
     public function handle($request, Closure $next)
     {
         $headers = [
-            'Access-Control-Allow-Origin' => '*',
-            'Access-Control-Allow-Methods' => 'POST, GET, OPTIONS, PUT, DELETE',
+            'Access-Control-Allow-Origin'      => '*',
+            'Access-Control-Allow-Methods'     => 'POST, GET, OPTIONS, PUT, DELETE',
             'Access-Control-Allow-Credentials' => 'true',
-            'Access-Control-Allow-Headers' => 'Content-Type, Authorization, X-Requested-With'
+            'Access-Control-Allow-Headers'     => 'Content-Type, Authorization, X-Requested-With'
         ];
 
         if ($request->isMethod('OPTIONS')) {

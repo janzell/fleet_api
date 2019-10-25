@@ -17,7 +17,7 @@ class BodyNumber extends Model
     /**
      * @var string
      */
-    protected $primaryKey =  'number';
+    protected $primaryKey = 'number';
 
     /**
      * @var bool

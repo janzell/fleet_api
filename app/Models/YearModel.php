@@ -16,7 +16,7 @@ class YearModel extends Model
     /**
      * @var string
      */
-    protected $primaryKey =  'number';
+    protected $primaryKey = 'number';
 
     /**
      * @var bool
@@ -27,7 +27,8 @@ class YearModel extends Model
      * @var array
      */
     protected $fillable = [
-        'name'
+        'name',
+        'notes'
     ];
 
     public $timestamps = true;

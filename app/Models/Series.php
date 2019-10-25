@@ -22,7 +22,8 @@ class Series extends Model
      * @var array
      */
     protected $fillable = [
-        'name'
+        'name',
+        'notes'
     ];
 
     public $timestamps = true;

@@ -27,8 +27,11 @@ class Cases extends Model
      * @var array
      */
     protected $fillable = [
-        'number'
+        'number',
+        'expired_at'
     ];
+
+    protected $dates = ['expired_at'];
 
     public $timestamps = true;
 }

@@ -3,5 +3,7 @@
 use App\Models\YearModel;
 
 $factory->define(YearModel::class, function (Faker\Generator $faker) {
-    return [];
+    return [
+        'notes' => $faker->text
+    ];
 });
