@@ -1,7 +1,6 @@
 <?php
 
 use App\Models\Driver;
-use Faker\Generator;
 
 $factory->define(Driver::class, function (Faker\Generator $faker) {
     return [
