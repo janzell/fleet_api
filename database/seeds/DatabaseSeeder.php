@@ -11,6 +11,7 @@ use App\Models\YearModel;
 use App\Models\BodyNumber;
 use App\Models\Cases;
 use App\Models\Garage;
+use App\Models\DropUnit;
 
 
 class DatabaseSeeder extends Seeder
@@ -29,6 +30,7 @@ class DatabaseSeeder extends Seeder
         BodyNumber::query()->truncate();
         Garage::query()->truncate();
         Cases::query()->truncate();
+        DropUnit::query()->truncate();
     }
 
     /**
@@ -55,10 +57,26 @@ class DatabaseSeeder extends Seeder
 
         $this->generateTaxiData();
 
+        $this->generateDropUnits();
+
         factory(Part::class, 100)->create();
     }
 
-    /** Generate taxi data for each body number */
+    /**
+     * Generate drop units.
+     */
+    protected function generateDropUnits()
+    {
+        Taxi::all()->each(function($taxi) {
+            factory(DropUnit::class)->create([
+                'body_number' => $taxi->body_number
+            ]);
+        });
+    }
+
+    /**
+     * Generate taxi data for each body number
+     */
     protected function generateTaxiData()
     {
         BodyNumber::all()->each(function ($number) {

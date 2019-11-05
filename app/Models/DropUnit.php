@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Taxi extends Model
+class DropUnit extends Model
 {
     /**
      * @var
@@ -18,7 +18,6 @@ class Taxi extends Model
     protected $fillable = [
         'plate_number',
         'status',
-        'dispatch_status',
         'notes',
         'body_number',
         'engine_number',
@@ -35,7 +34,5 @@ class Taxi extends Model
         'or_number',
         'or_issued_at',
         'case_number',
-        'garage_id',
-        'company_id'
     ];
 }

@@ -1,15 +1,14 @@
 <?php
 
-use App\Models\Taxi;
+use App\Models\DropUnit;
 
-$factory->define(Taxi::class, function (Faker\Generator $faker) {
+$factory->define(DropUnit::class, function (Faker\Generator $faker) {
 
     $status = ['24_HRS', 'RENT_TO_OWN', 'STRAIGHT'];
 
     return [
         'plate_number'           => strtoupper($faker->bothify('???-###')),
         'status'                 => $faker->randomElement($status),
-        'dispatch_status'        => $faker->randomElement(['run', 'drop', 'standby']),
         'notes'                  => $faker->realText(),
         'body_number'            => $faker->numerify('####'),
         'engine_number'          => strtoupper($faker->bothify('???##-#######')),
@@ -25,8 +24,6 @@ $factory->define(Taxi::class, function (Faker\Generator $faker) {
         'temporary_plate_number' => strtoupper($faker->bothify('??####')),
         'or_number'              => $faker->numerify('#########-##'),
         'or_issued_at'           => $faker->date('Y-m-d'),
-        'case_number'            => $faker->numerify('##-##-####'),
-        'garage_id'              => $faker->numberBetween(1, 100),
-        'company_id'             => $faker->numberBetween(1, 100),
+        'case_number'            => $faker->numerify('##-##-####')
     ];
 });
