@@ -12,6 +12,10 @@ use App\Models\BodyNumber;
 use App\Models\Cases;
 use App\Models\Garage;
 use App\Models\DropUnit;
+use App\Models\DriverEducationalAttainment;
+use App\Models\DriverCharacterReference;
+use App\Models\DriverEmploymentHistory;
+use App\Models\DriverOtherInfo;
 
 
 class DatabaseSeeder extends Seeder
@@ -53,7 +57,12 @@ class DatabaseSeeder extends Seeder
 
         factory(Company::class, 100)->create();
         factory(User::class, 100)->create();
-        factory(Driver::class, 100)->create();
+        factory(Driver::class, 100)->create()->each(function ($driver) {
+            factory(DriverEducationalAttainment::class)->create(['driver_id' => $driver->id]);
+            factory(DriverOtherInfo::class)->create(['driver_id' => $driver->id]);
+            factory(DriverCharacterReference::class)->create(['driver_id' => $driver->id]);
+            factory(DriverEmploymentHistory::class)->create(['driver_id' => $driver->id]);
+        });
 
         $this->generateTaxiData();
 
@@ -67,7 +76,7 @@ class DatabaseSeeder extends Seeder
      */
     protected function generateDropUnits()
     {
-        Taxi::all()->each(function($taxi) {
+        Taxi::all()->each(function ($taxi) {
             factory(DropUnit::class)->create([
                 'body_number' => $taxi->body_number
             ]);
